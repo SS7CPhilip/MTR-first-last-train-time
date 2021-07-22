@@ -23,7 +23,7 @@ while True:
           # if the input is not-integer, run the next step
         except:
           print("Searching, Please wait a moment")
-          train_time_sta = gets_train_time_sta(stationId_input)
+          train_time_sta = gets_train_time_sta(stationId_input,0)
           print("The fist last train time per station per direction are:\n",train_time_sta)
           quit()
       elif selection == 2:
@@ -33,7 +33,7 @@ while True:
         line_input = input()
         print("You selected:")
         print(MTRdbConnection.getLineName(line_input))
-        train_time_sta = gets_train_time_sta(MTRdbConnection.getStationsList(line_input))
+        train_time_sta = gets_train_time_sta(MTRdbConnection.getStationsList(line_input),1)
         print("The fist last train time per station per direction are:")
         export_table = pd.DataFrame(train_time_sta.items(), columns=["station", "time"])
         print(export_table)
