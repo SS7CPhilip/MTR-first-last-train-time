@@ -14,7 +14,7 @@ def chunks(list_in, n):
 #Create a list of station you're going to get
 stationId_input = list(range(1,12))
 '''
-def gets_train_time_sta(stationId_input):
+def gets_train_time_sta(stationId_input, line_wise):
   try:
     print("The stations are:",MTRdbConnection.getStationNames(stationId_input),"\nSearching, Please wait a moment...")
     train_time_sta = {}
@@ -39,6 +39,9 @@ def gets_train_time_sta(stationId_input):
       stations = []
       for sta in bound_for_sta:
         staId = re.sub('\D', '', str(sta))
+        # When searching line-wise, filter bound_for_stations which are out of specific line (a.k.a transfer stations)
+        if line_wise == 1 and int(staId) not in stationId_input:
+            continue
         staname = MTRdbConnection.getStationName(staId)
         #print(staname)
         stations.append(staname)
@@ -67,7 +70,7 @@ def gets_train_time_sta(stationId_input):
     print("Please check if all station ID are valid!")
 
 '''
-train_time_sta = gets_train_time_sta([2,3,4,5])
+train_time_sta = gets_train_time_sta([2,86,87,88,89],1)
 print(train_time_sta)
 '''
 
