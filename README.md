@@ -3,4 +3,4 @@ Get MTR train timetable
 
 This branch optimized the line-wise search result. The first last train time which are not on specific line will be removed from the result. 
 
-已知的bug：按綫查詢查將軍澳綫首末車時刻時，油塘站之結果會包含觀塘綫往調景嶺方向的末班車
+已知的bug：按綫查詢查將軍澳綫首末車時刻時，油塘站之結果會包含觀塘綫往調景嶺方向的末班車。機場快綫與東涌綫無此問題，因爲兩綫共構各站的station ID并非相同。
